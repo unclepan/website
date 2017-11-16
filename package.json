@@ -1,0 +1,21 @@
+{
+  "name": "website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --progress --colors --config ./build/dev-server.js",
+    "build": "webpack --progress --colors --config ./build/build.js",
+    "test": "webpack --progress --colors --config ./build/dev-server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "clean-webpack-plugin": "^0.1.17",
+    "glob": "^7.1.2",
+    "uglifyjs-webpack-plugin": "^1.0.1",
+    "webpack": "^3.8.1",
+    "webpack-merge": "^4.1.1"
+  }
+}
