@@ -5,11 +5,11 @@ const layout = require('layout-without-nav');
 const dirsConfig = config.DIRS;
 
 const loginBoxHtml = require('./templates/login-box.ejs')({
-  constructInsideUrl: noJquery.constructInsideUrl,
+    constructInsideUrl: noJquery.constructInsideUrl,
 });
 const forgetPasswordHtml = require('./templates/forget-password-box.html');
 const renderData = Object.assign({}, dirsConfig, { loginBoxHtml, forgetPasswordHtml });
 
 module.exports = layout.init({
-  pageTitle: '',
+    pageTitle: '',
 }).run(content(renderData));

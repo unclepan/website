@@ -6,18 +6,40 @@
   "scripts": {
     "dev": "webpack --progress --colors --config ./build/dev-server.js",
     "build": "webpack --progress --colors --config ./build/build.js",
-    "test": "webpack --progress --colors --config ./build/dev-server.js"
+    "test": "npm run dev"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "autoprefixer": "^7.1.6",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
     "clean-webpack-plugin": "^0.1.17",
+    "css-loader": "^0.28.7",
     "eslint": "^4.11.0",
+    "eslint-friendly-formatter": "^3.0.0",
     "eslint-loader": "^1.9.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.5",
     "glob": "^7.1.2",
+    "less": "^2.7.3",
+    "less-loader": "^4.0.5",
+    "node-sass": "^4.6.1",
+    "postcss-loader": "^2.0.8",
+    "precss": "^2.0.0",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.19.0",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.1",
     "uglifyjs-webpack-plugin": "^1.0.1",
+    "url-loader": "^0.6.2",
     "webpack": "^3.8.1",
     "webpack-merge": "^4.1.1"
+  },
+  "dependencies": {
+    "babel-runtime": "^6.26.0"
   }
 }
