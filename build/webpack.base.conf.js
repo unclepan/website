@@ -107,5 +107,12 @@ module.exports = {
         ...configPlugins,
         // 配合CLI的，一出error就终止webpack的编译进程
         new webpack.NoEmitOnErrorsPlugin(),
+        // https://doc.webpack-china.org/plugins/provide-plugin/
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery',
+            'window.$': 'jquery',
+            'window.jQuery': 'jquery',
+        }),
     ],
 };
