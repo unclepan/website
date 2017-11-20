@@ -34,9 +34,9 @@ $ npm run build
 ## CLI命令(npm scripts)
 | 命令            | 作用&效果          |
 | --------------- | ------------- |
-| npm run dev   | 根据`webpack.dev.conf.js`，build出一份开发环境的代码 |
-| npm run build     | 根据`webpack.prod.conf.js`，开启webpack-dev-server并自动打开浏览器，自动监测源码变动并实现LiveReload，**推荐实际开发时使用此项** |
-| npm run stats   | 根据`webpack.prod.conf.js`，在根目录生成stats.json得到项目依赖的统计信息，可视化工具：http://webpack.github.io/analyse/ 或者 https://chrisbateman.github.io/webpack-visualizer/ 或者 https://alexkuz.github.io/webpack-chart/ 或者 自行谷歌。当你优化包输出的大小，这些工具是非常重要的。官方工具有最多的功能，但即使是简单的可视化可以揭示问题点。|
+| npm run build   | 根据`webpack.prod.conf.js`，编译出一份生产环境的代码 |
+| npm run dev     | 根据`webpack.dev.conf.js`，开启webpack-dev-server并自动打开浏览器，自动监测源码变动并实现Hot Module Replacement，**推荐实际开发时使用此项** |
+| npm run stats   | 根据`webpack.prod.conf.js`，在根目录生成stats.json得到项目依赖的统计信息，可视化工具：http://webpack.github.io/analyse/ 或者 https://chrisbateman.github.io/webpack-visualizer/ 或者 https://alexkuz.github.io/webpack-chart/ 或者 自行谷歌。当你优化包输出的大小，这些工具是非常重要的。官方工具有很多的功能，但即使是简单的可视化也可以揭示问题点。|
 
 ## 目录结构说明
 ```
