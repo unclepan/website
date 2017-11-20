@@ -4,9 +4,9 @@
   "description": "webpack的静态多页面项目工程",
   "main": "index.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --config ./build/webpack.dev.conf.js  --progress --colors",
-    "build": "cross-env NODE_ENV=production webpack --config ./build/webpack.prod.conf.js --progress --colors",
-    "test": "npm run build"
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --config ./build/webpack.dev.conf.js  --progress --colors --profile",
+    "build": "cross-env NODE_ENV=production webpack --config ./build/webpack.prod.conf.js --progress --colors --profile",
+    "stats": "cross-env NODE_ENV=production webpack --config ./build/webpack.prod.conf.js  --progress --colors --profile --json > stats.json"
   },
   "keywords": [],
   "author": "杨盼 738912168@qq.com",
