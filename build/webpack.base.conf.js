@@ -1,29 +1,42 @@
-var path = require('path');
-var glob = require('glob');
-var utils = require('./utils');
+const path = require('path');
+const glob = require('glob');
+const webpack = require('webpack');
+const utils = require('./utils');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-// 提取 css 的插件
-// https://github.com/webpack-contrib/extract-text-webpack-plugin
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-
-var options = {
-    cwd: utils.resolve('src/pages'), // 在pages目录里找
+const globInstanceEntry = new glob.Glob('!(_)*/!(_)*/page.js', {
+    cwd: utils.resolve('src'), // 在pages目录里找
     sync: true, // 这里不能异步，只能同步
-};
-var globInstance = new glob.Glob('!(_)*/!(_)*', options); // 考虑到多个页面共用HTML等资源的情况，跳过以'_'开头的目录
-var configEntry = {};
-globInstance.found.forEach((page) => {
-    configEntry[page] = path.resolve(utils.resolve('src/pages'), page + '/page');
+}); // 考虑到多个页面共用HTML等资源的情况，跳过以'_'开头的目录
+let configEntry = {}; 
+globInstanceEntry.found.forEach((page) => {// 生成入口entry
+    const e = page.slice(0,-8);
+    configEntry[e] = path.resolve(utils.resolve('src'), e + '/page'); 
 });
 
+const globInstanceHtml = new glob.Glob('!(_)*', {
+    cwd: utils.resolve('src/pages'), // 在pages目录里找
+    sync: true, // 这里不能异步，只能同步
+}); // 考虑到多个页面共用HTML等资源的情况，跳过以'_'开头的目录
+
+let configPlugins = [];
+// 生成导出的模板
+globInstanceHtml.found.forEach((page) => {
+    const htmlPlugin = new HtmlWebpackPlugin({
+        filename: `${page}.html`,
+        template: path.resolve(utils.resolve('src/pages'), `./${page}/content.ejs`),
+        hash: true, // 为静态资源生成hash值
+        xhtml: true,
+    });
+    configPlugins.push(htmlPlugin);
+});
 
 module.exports = {
     entry: configEntry,
     output: {
         path: utils.resolve('dist'),
         publicPath: '/',
-        filename: '[name]/entry.[chunkhash].js',    // [name]表示entry每一项中的key，用以批量指定生成后文件的名称
-        chunkFilename: '[id].[chunkhash].bundle.js',
+        filename: 'static/js/[name][hash].js',    // [name]表示entry每一项中的key，用以批量指定生成后文件的名称
     },
     devtool: 'source-map',
     performance: {
@@ -33,6 +46,10 @@ module.exports = {
     },
     module: {
         rules: [
+            {
+                test: /\.ejs$/,
+                loader: 'underscore-template-loader',
+            },
             {
                 // 审查 js 文件
                 // https://github.com/MoOx/eslint-loader
@@ -84,10 +101,8 @@ module.exports = {
         ],
     },
     plugins: [
-        /* 抽取出chunk的css */
-        new ExtractTextPlugin({
-            filename: 'static/css/[hash:7].css',
-            ignoreOrder: true,
-        }),
+        ...configPlugins,
+        // 配合CLI的，一出error就终止webpack的编译进程
+        new webpack.NoEmitOnErrorsPlugin(),
     ],
 };

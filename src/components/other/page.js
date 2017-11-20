@@ -1,0 +1,1 @@
+console.log('组件other');
