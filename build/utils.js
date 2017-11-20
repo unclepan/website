@@ -36,7 +36,6 @@ exports.assetsPath = function (_path) {
 
 exports.cssLoaders = function (options) {
     options = options || {};
-
     var cssLoader = {
         loader: 'css-loader',
         options: {
@@ -77,10 +76,10 @@ exports.cssLoaders = function (options) {
         if (options.extract) {
             return ExtractTextPlugin.extract({
                 use: loaders,
-                fallback: 'style-loader',
+                fallback: {loader: 'style-loader', options: { sourceMap: options.sourceMap }},
             });
         } else {
-            return [{loader: 'style-loader'}].concat(loaders);
+            return [{loader: 'style-loader', options: { sourceMap: options.sourceMap }}].concat(loaders);
         }
     }
 

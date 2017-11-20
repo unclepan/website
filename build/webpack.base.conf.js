@@ -1,19 +1,22 @@
 const path = require('path');
 const glob = require('glob');
 const webpack = require('webpack');
+const config = require('../config');
 const utils = require('./utils');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const globInstanceEntry = new glob.Glob('!(_)*/!(_)*/page.js', {
-    cwd: utils.resolve('src'), // 在pages目录里找
+//入口entry
+const globInstanceEntry = new glob.Glob('*(pages|components)/!(_)*/page.js', {
+    cwd: utils.resolve('src'), // 在src目录里的pages和components目录下找
     sync: true, // 这里不能异步，只能同步
 }); // 考虑到多个页面共用HTML等资源的情况，跳过以'_'开头的目录
 let configEntry = {}; 
 globInstanceEntry.found.forEach((page) => {// 生成入口entry
-    const e = page.slice(0,-8);
-    configEntry[e] = path.resolve(utils.resolve('src'), e + '/page'); 
+    const e = page.split('/')[1];
+    configEntry[e] = utils.resolve('src/' + page); 
 });
 
+// 多页面设置
 const globInstanceHtml = new glob.Glob('!(_)*', {
     cwd: utils.resolve('src/pages'), // 在pages目录里找
     sync: true, // 这里不能异步，只能同步
@@ -24,7 +27,7 @@ let configPlugins = [];
 globInstanceHtml.found.forEach((page) => {
     const htmlPlugin = new HtmlWebpackPlugin({
         filename: `${page}.html`,
-        template: path.resolve(utils.resolve('src/pages'), `./${page}/content.ejs`),
+        template: path.resolve(utils.resolve('src/pages'), `./${page}/template.ejs`),
         hash: true, // 为静态资源生成hash值
         xhtml: true,
     });
@@ -34,11 +37,11 @@ globInstanceHtml.found.forEach((page) => {
 module.exports = {
     entry: configEntry,
     output: {
-        path: utils.resolve('dist'),
-        publicPath: '/',
-        filename: 'static/js/[name][hash].js',    // [name]表示entry每一项中的key，用以批量指定生成后文件的名称
+        // 编译输出的路径
+        path: config.build.assetsRoot,
+        publicPath: process.env.NODE_ENV === 'production' ? config.build.assetsPublicPath : config.dev.assetsPublicPath,
+        filename: utils.assetsPath('js/[name][hash].js'),   // [name]表示entry每一项中的key，用以批量指定生成后文件的名称
     },
-    devtool: 'source-map',
     performance: {
         hints: 'error',
         maxEntrypointSize: 6000000, //此选项根据入口起点的最大体积，控制 webpack 何时生成性能提示。
@@ -85,7 +88,7 @@ module.exports = {
                 loader: 'url-loader',
                 options: {
                     limit: 8192,
-                    name: 'static/img/[hash:7].[ext]',
+                    name: utils.assetsPath('img/[hash:7].[ext]'),
                 },
             },
             {
@@ -94,7 +97,7 @@ module.exports = {
                 include: utils.resolve('src'),
                 loader: 'file-loader',
                 options: {
-                    name: 'static/fonts/[name].[hash:7].[ext]',
+                    name: utils.assetsPath('fonts/[name].[hash:7].[ext]'),
                 },
             },
             

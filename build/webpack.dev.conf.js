@@ -6,6 +6,7 @@ const config = require('../config');
 const baseWebpackConfig = require('./webpack.base.conf');// webpac基本配置
 
 module.exports = merge(baseWebpackConfig, {
+    devtool: 'eval-source-map',
     module: {
         // styleLoaders
         rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap }),
@@ -20,7 +21,9 @@ module.exports = merge(baseWebpackConfig, {
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
         compress: true,
-        port: 9000,
+        port: config.dev.port,
+        host: config.dev.host,
+        open: config.dev.autoOpenBrowser,
         overlay: {
             warnings: true,
             errors: true,
