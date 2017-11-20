@@ -58,7 +58,7 @@ $ npm run build
     ├─pages # 各个页面，如入口文件、只有该页面使用到的css、模板文件等
     ├─components # 组件，可以是纯HTML，也可以包含js/css/image等，看自己需要
     ├─assets # 公用的图片资源
-    └─logic # 各个页面使用到的公共资源
+    └─common # 各个页面使用到的公共资源
 ```
 
 ## 更新日志
