@@ -1,0 +1,213 @@
+@import "../../common/style/variables.scss";
+/*头部*/
+#header{
+	padding-bottom: 32px;
+	.black_line{
+		min-width: 1020px;
+		background: $colorOne;
+		text-align: center;
+		color: $colorFour;
+		cursor: pointer;
+	}
+	div.black_line_inner{
+		height: 20px;
+		overflow:hidden;
+		position: relative;
+	}
+	#video_top{
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+	.close_line{
+		position: absolute;
+		left: 50%;
+		bottom: 10px;
+		z-index: 100;
+		width: 50px;
+		height: 50px;
+		line-height: 50px;
+		text-align: center;
+		font-size: 18px;
+		background: $colorTwelf;
+		margin-left: -25px;
+		border-radius:25px;
+		-moz-border-radius:25px; /* Old Firefox */
+	}
+	
+	#logo{
+		display: block;
+		width: 120px;
+		margin: 30px auto 28px;
+	}
+	#logo img{
+		display: block;
+		margin: 0 auto;
+		width: 120px;
+	}
+	#nav_box{
+		min-width: 1024px;
+		max-width:1500px;
+		margin: 0 auto;
+		padding: 0 10px;
+	}
+	.nav_search{
+		float: left;
+		display: block;
+		width: 130px;
+		height: 22px;
+		line-height: 20px;
+		cursor: pointer;
+		background: $colorSeven;
+		font-size: 10px;
+		color: $colorOne;
+		border: none;
+		padding: 0 5px;
+		border-radius:5px;
+		outline: none;
+	}
+	button.nav_search:hover{
+		background: #efefef;
+	}
+	button.nav_search span{
+		color: #666666;
+	}
+	.nav_search_open{
+		position: fixed;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background: $colorTwelf;
+		z-index: 1000;
+		display: none;
+		.nav_search_form{
+			width: 420px;
+			background: $colorSix;
+			min-height: 50px;
+			border-radius:2px;
+			-moz-border-radius:5px; /* Old Firefox */
+			padding: 0 8px;
+			position: absolute;
+			top: 8%;
+			left: 50%;
+			margin-left: -214px;
+			z-index: 1000;
+			.input-text{
+			  width: 380px;
+			  font-size: 14px;
+			  height: 50px;
+			  line-height: 50px;
+			  outline: 0;
+			  border: none;
+			  background: none;
+			  padding-left: 5px;
+			  color: $colorOne;
+			}
+			.search-info-list{
+			  border-top:1px dashed $colorTen;
+			  padding-top: 10px;
+			  li{
+				padding: 5px;
+				margin-bottom: 20px;
+				cursor: pointer;
+				&:hover{
+				  background:$colorNine;
+				}
+				.img-box{
+				  width: 60px;
+				  float: left;
+				  img{
+					width: 100%;
+					display: block;
+				  }
+				}
+				.text-box{
+				  float: left;
+				  width: 340px;
+				  padding-left: 10px;
+				  .title{
+					font-size: 16px;
+					color: $colorOne;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+					overflow: hidden;
+					margin-bottom: 8px;
+				  }
+				  .text{
+					font-size: 12px;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+					overflow: hidden;
+				  }
+				}
+			  }
+			}
+		}
+	}
+	.nav_main_box{
+		width: calc(100% - 290px);
+		float: left;
+		.nav_main{
+			width: 720px;
+			margin:0 auto;
+			li{
+				width: 110px;
+				height: 22px;
+				margin:0 5px;
+				line-height: 22px;
+				float: left;
+				text-align: center;
+				a{
+					font-size: 16px;
+					display: block;
+					color: $colorOne;
+					border-radius:5px;
+					transition: background 300ms;
+					&:hover,&.current{
+						background: $colorFive;
+					}
+				}
+			}
+		}	
+	}
+	
+	
+	.Login_Join{
+		width: 160px;
+		float: right;
+	}
+	.Login_Join li.a_login_03{
+		width: 104px;
+	}
+	.Login_Join li.a_login_02,.Login_Join li.a_login_04{
+		width: 56px;
+	}
+	.Login_Join li.a_login_01{
+		width: 94px;
+		padding-right: 10px;
+	}
+	.Login_Join li.a_login_01 a{
+		width: 94px;
+		height: 22px;
+		line-height: 22px;
+		overflow: hidden;
+		text-overflow:ellipsis;
+		white-space:nowrap;
+	}
+	.Login_Join li{
+		overflow: hidden;
+		float: left;
+		height: 22px;
+		line-height: 22px;
+	}
+	.Login_Join li a{
+		font-size: 16px;
+		display: block;
+		color: $colorOne;
+		text-align: right;
+	}
+	.Login_Join li a:hover{
+		color: $colorThree;
+	}
+}

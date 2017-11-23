@@ -1,0 +1,92 @@
+@import "../../common/style/variables.scss";
+.fullSlide{
+	width:100%;
+	position:relative;
+	height:400px;
+	background:$colorFive;
+	min-width: 1024px;
+    overflow:hidden;
+    .bd{
+        margin:0 auto;
+        position:relative;
+        z-index:0;
+        overflow:hidden;
+        ul{
+            width:100% !important;
+        }
+        li{
+            width:100% !important;
+            height:400px;
+            overflow:hidden;
+            text-align:center;
+            background:$colorOne center 0 no-repeat;
+            position: relative;
+            img{
+                position: absolute;
+                left: 50%;
+                top: 0;
+                z-index: 998;
+                display: block;
+                margin-left: -1000px
+            
+            }
+            a{
+                display:block;
+                height:400px;
+                position: absolute;
+                width: 100%;
+                z-index: 999;
+                p.time{
+                    color: #eeeeee;
+                    font-size: 14px;
+                    padding-top: 200px;
+                    margin-bottom: 18px;
+                    text-shadow: 1px 1px 1px $colorOne;
+                }
+                h2.text_title{
+                    color: #ffffff;
+                    font-size: 28px;
+                    text-shadow: 1px 1px 2px $colorOne;
+                    max-width: 1000px;
+                    margin: 0 auto;
+                }
+                button.more{
+                    text-shadow: 1px 1px 3px $colorOne;
+                    border: 1px dashed #f8f8f8;
+                    background-color:rgba(200,200,200,0.1);
+                    width: 130px;
+                    height: 42px;
+                    line-height: 38px;
+                    font-size: 16px;
+                    color: #ffffff;
+                    margin-top: 20px;
+                    border-radius:5px;
+                    -moz-border-radius:5px; /* Old Firefox */
+                }
+                button.more:hover{
+                    background-color:rgba(255,255,255,0.2);
+                }
+            }
+        }
+    }
+    .prev,.next{
+        display:block;
+        color: #fff;
+        position:absolute;
+        z-index:1;
+        top:50%;
+        margin-top:-25px;
+        left:5%;
+        width:50px;
+        height:50px;
+        line-height: 50px;
+        text-align: center;
+        font-size: 36px;
+        cursor:pointer;
+        filter:alpha(opacity=70);
+        opacity:0.7;
+        background:$colorOne;
+        border-radius:25px;
+    }
+    .next{left:auto; right:5%;}
+}

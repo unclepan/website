@@ -1,0 +1,27 @@
+<div id="join_main">
+    <h1 class="join_title">注册ANTCP.COM账号</h1>
+    <p class="join_text">只需创建一个账户即可完美体验ANTCP.COM网站，以及及时获得网站最新的信息。</p>
+    <div class="user_box">
+        <label for="user_name">用户名：</label>
+        <input type="text" id="user_name"  placeholder="请输入英文大小写字母、数字、中文、不要输入特殊字符">
+        <p class="warning">&nbsp;</p>
+
+        <label for="password">密码：</label>
+        <input type="password" id="password" placeholder="请输入 6-20 位的数字和字母">
+        <p class="warning">&nbsp;</p>
+
+        <label for="password_repeat">确认密码：</label>
+        <input type="password" id="password_repeat" placeholder="请重复密码">
+        <p class="warning">&nbsp;</p>
+
+        <label for="email">电子邮件地址：</label>
+        <input type="email" id="email" placeholder="请输入您的电子邮件地址">
+        <p class="warning">&nbsp;</p>
+
+        <label for="phone">手机号码：</label>
+        <input type="text" id="phone" placeholder="请输入您的手机号码">
+        <p class="warning">&nbsp;</p>
+
+        <div class="button" @click="submitForm" >确认提交</div>
+    </div>
+</div>

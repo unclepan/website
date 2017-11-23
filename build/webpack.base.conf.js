@@ -1,15 +1,16 @@
 const path = require('path');
 const glob = require('glob');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const config = require('../config');
 const utils = require('./utils');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const absolutePath = require('./path.config.js');
 
 //入口entry
 const globInstanceEntry = new glob.Glob('*(pages|components)/!(_)*/page.js', {
     cwd: utils.resolve('src'), // 在src目录里的pages和components目录下找
     sync: true, // 这里不能异步，只能同步
-}); // 考虑到多个页面共用HTML等资源的情况，跳过以'_'开头的目录
+});
 let configEntry = {}; 
 globInstanceEntry.found.forEach((page) => {// 生成入口entry
     const e = page.split('/')[1];
@@ -19,9 +20,8 @@ globInstanceEntry.found.forEach((page) => {// 生成入口entry
 // 多页面设置
 const globInstanceHtml = new glob.Glob('!(_)*', {
     cwd: utils.resolve('src/pages'), // 在pages目录里找
-    sync: true, // 这里不能异步，只能同步
-}); // 考虑到多个页面共用HTML等资源的情况，跳过以'_'开头的目录
-
+    sync: true,
+});
 let configPlugins = [];
 // 生成导出的模板
 globInstanceHtml.found.forEach((page) => {
@@ -100,8 +100,11 @@ module.exports = {
                     name: utils.assetsPath('fonts/[name].[hash:7].[ext]'),
                 },
             },
-            
         ],
+    },
+    resolve: {
+        extensions: ['.js', '.css', '.json'],
+        alias: absolutePath,
     },
     plugins: [
         ...configPlugins,

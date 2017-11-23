@@ -1,0 +1,145 @@
+<div id="header">
+    <div class="black_line">
+        <div class="black_line_inner">
+            <video id="video_top" preload="auto">
+                <source src="../../common/videos/intro.webm" type="video/webm" />
+                <source src="../../common/videos/intro.mp4" type="video/mp4" />
+            </video>
+            <!-- <div class="close_line">
+                <i class="fa fa-times" aria-hidden="true"></i>
+            </div> -->
+        </div>
+        <i class="icon-chevron-down"></i>
+    </div>
+    <a id="logo" href="#" target="_blank">
+        <img src="../../assets/img/logo.png" alt="AntcpLogo">
+    </a>
+    <div id="nav_box">
+        <button class="nav_search">
+            <i class="fa fa-search" aria-hidden="true"></i>&nbsp;
+            <span>click to search...</span>
+        </button>
+        <div class="nav_search_open">
+            <div class="nav_search_form">
+                <i class="fa fa-search" aria-hidden="true"></i>
+                <input class="input-text" type="text" placeholder="请输入搜索内容..." v-model="sreachInfo">
+                <ul class="search-info-list" v-if="sreachList.length">
+                  <li>
+                    <a href="#">
+                      <div class="img-box">
+                        <img src="../../assets/img/item.jpg" :alt="item.title">
+                      </div>
+                      <div class="text-box">
+                        <h3 class="title">世界上最受欢迎的颜色是怎么诞生的？</h3>
+                        <p class="text">那年我遇到了他，就明白，他就是我一直等待的那个人，只是我不能说出来。</p>
+                      </div>
+                      <div class="clear"></div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="img-box">
+                        <img src="../../assets/img/item.jpg" :alt="item.title">
+                      </div>
+                      <div class="text-box">
+                        <h3 class="title">对于大部分人来说，无论有多喜欢，都只能观赏和使用，怎么会有占有权？</h3>
+                        <p class="text">他就是我一直等待的那个人，只是我不能说出来。</p>
+                      </div>
+                      <div class="clear"></div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="img-box">
+                        <img src="../../assets/img/item.jpg" :alt="item.title">
+                      </div>
+                      <div class="text-box">
+                        <h3 class="title">然而，英国百年造纸商G.F Smith却真的将2017年“世界最受欢迎的颜色”作为一份诚意十足的见面。</h3>
+                        <p class="text">送给了一名叫Annie Marrs的英国女孩儿，并以她的名字来命名这个颜色。</p>
+                      </div>
+                      <div class="clear"></div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div class="img-box">
+                        <img src="../../assets/img/item.jpg" :alt="item.title">
+                      </div>
+                      <div class="text-box">
+                        <h3 class="title">搜索的标题</h3>
+                        <p class="text">G.F Smith以她的名字来命名这个颜色为：Marrs Green。</p>
+                      </div>
+                      <div class="clear"></div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                        <div class="img-box">
+                        <img src="../../assets/img/item.jpg" :alt="item.title">
+                        </div>
+                        <div class="text-box">
+                        <h3 class="title">一名叫Annie Marrs的英国女孩所提交的蓝绿色获选</h3>
+                        <p class="text">只是我不能说出来。</p>
+                        </div>
+                        <div class="clear"></div>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="#">
+                        <div class="img-box">
+                        <img src="../../assets/img/item.jpg" :alt="item.title">
+                        </div>
+                        <div class="text-box">
+                        <h3 class="title">它还为Marrs Green办了一场超酷的临时商店</h3>
+                        <p class="text">邀请来同样有着英国血统的好朋友们，比如Anglepoise台灯、Richard Brendon茶杯。</p>
+                        </div>
+                        <div class="clear"></div>
+                    </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="nav_main_box">
+            <ul class="nav_main">
+                <li>
+                    <a class="current" href="" target="_balnk">Home</a>
+                </li>
+                <li>
+                    <a href="" target="_balnk">FrontEnd</a>
+                </li>
+                <li>
+                    <a href="" target="_balnk">Inspiration</a>
+                </li>
+                <li>
+                    <a href="" target="_balnk">UI Design</a>
+                </li>
+                <li>
+                    <a href="" target="_balnk">Interactive</a>
+                </li>
+                <li>
+                    <a href="" target="_balnk">About</a>
+                </li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+
+        <ul class="Login_Join">
+            <li class="a_login_01">
+                <a href="#"><i class="fa fa-user-circle-o" aria-hidden="true"></i>&nbsp; 明日青年</a>
+            </li>
+            <li class="a_login_02">
+                <a href="javascript:">登出</a>
+            </li>
+            <!-- <li class="a_login_03" @mouseenter="ifZh='signup'" @mouseleave="ifZh=false">
+                <router-link :to='{name:"Signup"}'>{{ifZh==='signup'?userList[1].title[1]:userList[1].title[0]}}</router-link>
+            </li>
+            <li class="a_login_04" @mouseenter="ifZh='login'" @mouseleave="ifZh=false">
+                <router-link :to='{name:"Login"}'>{{ifZh==='login'?userList[2].title[1]:userList[2].title[0]}}</router-link>
+            </li> -->
+			<div class="clear"></div>
+		</ul>
+
+        <div class="clear"></div>
+    </div>
+</div>

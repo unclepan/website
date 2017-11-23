@@ -1,0 +1,21 @@
+<div id="index_main">
+    <ul class="index_main_list">
+        <% for(let i = 0; i < data.length; i++){ %>
+        <li>
+            <div class="list_tag_img">
+                <a class="tag" target="_blank" href="#"><%= data[i].tag %></a>
+                <p class="time_pv"><%= data[i].time %> / <%= data[i].author %> / PV:<%= data[i].pv %></p>
+                <a href="#" target="_blank">
+                    <img src='../../assets/img/item.jpg' alt="图片">
+                </a>
+            </div>
+            <h3 class="title">
+                <a href="#" target="_blank"><%= data[i].title %></a>
+            </h3>
+            <a class="text" href="#" target="_blank"><%= data[i].text %></a>
+        </li>
+        <% } %>
+        <div class="clear"></div>
+    </ul>
+    <a class="look_more" href="#" target="_blank"><i class="fa fa-hand-o-right" aria-hidden="true"></i>&nbsp;查看更多</a>
+</div>

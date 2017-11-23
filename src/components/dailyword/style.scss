@@ -1,0 +1,10 @@
+@import "../../common/style/variables.scss";
+.everyday_words{
+	min-width: 1024px;
+	max-width: 1500px;
+	margin: 30px auto;
+	padding: 0 10px;
+	color: $colorTwo;
+	font-size: 16px;
+	line-height: 24px;
+}

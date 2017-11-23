@@ -26,12 +26,12 @@ module.exports = merge(baseWebpackConfig, {
             root: path.resolve(__dirname, '../'),
         }),
         // 压缩 js
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: true,
-            },
-            sourceMap: true,
-        }),
+        // new webpack.optimize.UglifyJsPlugin({
+        //     compress: {
+        //         warnings: true,
+        //     },
+        //     sourceMap: true,
+        // }),
         new webpack.DefinePlugin({
             'process.env': config.build.env,
         }),

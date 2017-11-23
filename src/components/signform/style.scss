@@ -1,0 +1,68 @@
+@import "../../common/style/variables.scss";
+#join_main{
+	min-width: 1024px;
+	max-width: 1500px;
+	margin: 0 auto;
+	text-align: center;
+}
+.join_title{
+	font-size: 26px;
+	line-height: 39px;
+	padding: 8px 0 26px;
+	color: $colorOne;
+	margin: 0 auto;
+}
+.join_text{
+	font-size: 16px;
+	color: $colorTwo;
+	line-height: 26px;
+	margin: 0 auto;
+}
+/*登录注册*/
+div.user_box{
+	width: 460px;
+	margin: 0 auto;
+	padding-top: 36px;
+}
+div.user_box label{
+	text-align: left;
+	font-size: 16px;
+	color: $colorOne;
+	display: block;
+	font-weight: bold;
+}
+div.user_box input{
+	width: 450px;
+	height: 42px;
+	line-height: 42px;
+	font-size: 14px;
+	color: $colorTwo;
+	background: $colorTen;
+	padding: 0 5px;
+	margin: 10px 0 5px;
+	display: block;
+}
+div.user_box p.warning{
+  margin-bottom: 20px;
+  font-size: 12px;
+  text-align: left;
+  color: #ff382c;
+}
+div.user_box .button{
+	background: $colorEleven;
+	font-weight: bold;
+	width: 460px;
+	height: 42px;
+	line-height: 40px;
+	font-size: 16px;
+	color: $colorOne;
+	margin-top: 50px;
+	display: block;
+	cursor: pointer;
+	border: none;
+	outline: none;
+	border-radius: 5px;
+}
+div.user_box .button:hover{
+	background: $colorFive;
+}

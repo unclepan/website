@@ -9,7 +9,7 @@
     "stats": "cross-env NODE_ENV=production webpack --config ./build/webpack.prod.conf.js  --progress --colors --profile --json > stats.json"
   },
   "keywords": [],
-  "author": "杨盼 738912168@qq.com",
+  "author": "哈哈哈",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^7.1.6",
@@ -44,6 +44,8 @@
     "webpack-merge": "^4.1.1"
   },
   "dependencies": {
-    "babel-runtime": "^6.26.0"
+    "babel-runtime": "^6.26.0",
+    "jquery": "^3.2.1",
+    "lodash": "^4.17.4"
   }
 }

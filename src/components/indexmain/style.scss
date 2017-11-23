@@ -1,0 +1,100 @@
+@import "../../common/style/variables.scss";
+/*首页正文*/
+#index_main{
+	min-width: 1024px;
+    max-width: 1520px;
+    margin: 0 auto;
+}
+.index_main_list li{
+	width: calc(25% - 20px);
+	margin: 0 10px;
+	float: left;
+	margin-bottom: 20px;
+	h3.title a{
+		display: block;
+		font-size: 16px;
+		color: $colorOne;
+		line-height: 24px;
+		height: 48px;
+		overflow: hidden;
+		margin: 5px 0;
+		&:hover{
+			color: $colorThree;
+		}
+	}
+	a.text{
+		display: block;
+		font-size: 14px;
+		line-height: 21px;
+		height: 63px;
+		color: $colorTwo;
+		overflow: hidden;
+		&:hover{
+			color: $colorThree;
+		}
+	}
+}
+.list_tag_img{
+	position: relative;
+	overflow: hidden;
+	img{
+		width: 100%;
+		display: block;
+		transition: transform 1200ms;
+		&:hover{
+			transform: scale(1.2,1.2);
+		}
+	}
+	.tag{
+		display: none;
+		position: absolute;
+		left: 5px;
+		top: 5px;
+		z-index: 100;
+		color: #ffffff;
+		font-size: 12px;
+		border-radius:5px;
+		padding: 0 5px;
+		height: 18px;
+		line-height: 18px;
+		background: $colorTwelf;
+		&:hover{
+			background:$colorSix;
+			color: $colorOne;
+		}
+	}
+	.time_pv{
+		display: none;
+		position: absolute;
+		left: 0;
+		bottom: 0px;
+		z-index: 100;
+		width: 100%;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+		padding: 0 5px;
+		font-size: 12px;
+		color: $colorSeven;
+		background: $colorTwelf;
+		height: 30px;
+		line-height: 30px;
+	}
+}
+.look_more{
+	width: 320px;
+	margin: 10px auto;
+	color: $colorOne;
+	font-weight: bold;
+	display: block;
+	font-size: 16px;
+	height: 42px;
+	line-height: 42px;
+	text-align: center;
+	background: $colorFive;
+	border: 1px dashed $colorSeven;
+	border-radius:2px;
+	&:hover{
+		background: $colorFour;
+	}
+}
